@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>কণ্ঠ — বাংলা ভয়েস স্টুডিও</title>
+<meta name="description" content="বাংলা লিখুন, প্রতিটি বাক্য আবেগ ও সুর দিয়ে শুনুন। ছেলে বা মেয়ের কণ্ঠ, ঐচ্ছিক ব্যাকগ্রাউন্ড মিউজিক।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>কণ্ঠ</h1>
+  <p>বাংলা লিখুন। প্রতিটি বাক্য নিজের সুরে শোনাবে।</p>
+</header>
+
+<div class="wrap">
+  <main>
+    <section class="panel">
+      <label for="text">আপনার লেখা</label>
+      <textarea id="text" maxlength="1000" rows="5" placeholder="এখানে বাংলায় লিখুন…"></textarea>
+      <div class="meta">
+        <span id="count">০ / ১০০০</span>
+        <button type="button" id="sample" class="link">নমুনা লেখা বসান</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>কোন বাক্য কেমন সুরে</h2>
+      <ol id="score" class="score"></ol>
+    </section>
+  </main>
+
+  <aside class="panel side">
+    <h2>কণ্ঠ ও সুর</h2>
+
+    <fieldset class="seg">
+      <legend>কণ্ঠ</legend>
+      <label><input type="radio" name="gender" value="female"><span>মেয়ে</span></label>
+      <label><input type="radio" name="gender" value="male"><span>ছেলে</span></label>
+    </fieldset>
+
+    <label class="row" for="speed">গতি <output id="speedOut">১.০×</output></label>
+    <input type="range" id="speed" min="0.6" max="1.4" step="0.05">
+
+    <label class="switch"><input type="checkbox" id="music"><span>ব্যাকগ্রাউন্ড মিউজিক</span></label>
+    <label class="row" for="mvol">মিউজিকের ভলিউম</label>
+    <input type="range" id="mvol" min="0.1" max="1" step="0.05">
+
+    <details>
+      <summary>নির্দিষ্ট ভয়েস বেছে নিন</summary>
+      <select id="voice" aria-label="ভয়েস"></select>
+    </details>
+
+    <p id="warn" class="warn" hidden>
+      এই ডিভাইসে বাংলা ভয়েস পাওয়া যায়নি। অ্যান্ড্রয়েডে Settings → Text-to-speech → Google → বাংলা ভয়েস ডেটা ইনস্টল করুন। কম্পিউটারে Microsoft Edge ব্যবহার করলে ভালো বাংলা ভয়েস পাবেন।
+    </p>
+  </aside>
+</div>
+
+<div class="player">
+  <button type="button" id="play" class="play" aria-label="শুনুন">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path id="ico" d="M8 5v14l11-7z" fill="currentColor"/></svg>
+  </button>
+  <div class="wave" id="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <span id="status" role="status">লেখা দিন, তারপর শুনুন চাপুন</span>
+</div>
+
+<footer>এটি কম্পিউটার-তৈরি (সিন্থেটিক) কণ্ঠ। কণ্ঠ আপনার ডিভাইস ও ব্রাউজারের ভয়েসের উপর নির্ভর করে।</footer>
+<script src="script.js"></script>
+</body>
+</html>
